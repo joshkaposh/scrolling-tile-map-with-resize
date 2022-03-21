@@ -1,4 +1,12 @@
 import Vect2 from "./Vect2.js";
+
+export const offsetToCenter = (pos, cameraPos, canvasW, canvasH, cameraW, cameraH) => {
+	return new Vect2(
+		Math.ceil(pos.x - cameraPos.x + canvasW * 0.5 - cameraW * 0.5),
+		Math.ceil(pos.y - cameraPos.y + canvasH * 0.5 - cameraH * 0.5)
+	);
+};
+
 export default class Camera {
 	constructor(x, y, width, height, { tilesize, cols, rows }) {
 		this.pos = new Vect2(x, y);
